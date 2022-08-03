@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='es'>
+    <head>
+        <meta charset="utf">
+        <title>
+            {% block title %}
+
+            {%endblock%}
+            |Edgar Cusi
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <img src="{% static 'images/logo.png' %}" />
+            </div>
+        </header>
+            
+        <nav>
+
+        <ul>
+            <li>
+                <a href="{% url 'inicio' %}">Inicio</a>
+            </li>
+            <li>
+                <a href="{% url 'integrantes' %}">Integrantes</a>
+            </li>
+            <li>
+                <a href="{% url 'crearproductos' %}">Crear Productos</a>
+            </li>
+            <li>
+                <a href="{% url 'crearcursos' %}">Crear Cursos</a>
+            </li>
+        </ul>
+    </nav>
+        <div class="barra">
+            <span class="esquina-izquierda"></span>
+            <span class="relleno-barra"></span>
+            <span class="esquina-derecha"></span>
+        </div>
+        <div id="content">
+            <div class="box">
+                {% block content %}
+                <strong> Contenido de Layout (padre)</strong>
+                {%endblock%}
+            </div>      
+        </div>
+        <footer>
+            UNTELS - LENGUAJE DE PROGRAMACIÓN III © CGL_UC4 - {% now "d/m/y h:m:s" %}
+        </footer>
+    </body>
+</html>
